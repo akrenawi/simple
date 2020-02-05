@@ -10,8 +10,11 @@ pipeline {
                     git 'https://github.com/akrenawi/simple.git'
                 }
             }
-            stage("Maven Build"){
-                sh "mvn clean package"
+            stage('Maven Build'){
+                steps{
+                     sh "mvn clean package"
+                }
+               
             }
 
         }
