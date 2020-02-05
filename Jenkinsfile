@@ -18,14 +18,7 @@ pipeline {
             }
             stage("deploy-dev"){
                 steps{
-                sshagent(credentials: ['5'], ignoreMissing: true) {
-                    sh """
-                        scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.19.13:/opt/tomcat8/webapps/
-                        ssh ec2-user@172.31.19.13 /opt/tomcat8/bin/shutdown.sh
-                        ssh ec2-user@172.31.19.13 /opt/tomcat8/bin/startup.sh
-                        
-                    """
-                }
+                    echo 'im deployed'
             }
             }
 
