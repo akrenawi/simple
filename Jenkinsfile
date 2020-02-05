@@ -13,7 +13,7 @@ pipeline {
             stage('Maven Build'){
                 steps{
                      sh "mvn clean package"
-                     sh "target/*jar target/myweb.jar" 
+                     sh "target/demo-0.0.1-SNAPSHOT.jar target/myweb.jar" 
                 }
                
             }
