@@ -13,7 +13,6 @@ pipeline {
             stage('Maven Build'){
                 steps{
                      sh "mvn clean package"
-                     sh "target/*.jar target/myweb.jar" 
                 }
                
             }
@@ -21,7 +20,7 @@ pipeline {
                 steps{
                 sshagent(credentials: ['5'], ignoreMissing: true) {
                     sh """
-                        scp -o StrictHostKeyChecking=no target/myweb.jar ec2-user@172.31.19.13:/opt/tomcat8/webapps/
+                        scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.19.13:/opt/tomcat8/webapps/
                         ssh ec2-user@172.31.19.13 /opt/tomcat8/bin/shutdown.sh
                         ssh ec2-user@172.31.19.13 /opt/tomcat8/bin/startup.sh
                         
