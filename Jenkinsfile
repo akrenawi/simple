@@ -1,13 +1,25 @@
 pipeline {
+
     agent any
 
+
+
     stages {
-        stage ('welcome') {
+
+        stage ('Git Checkout') {
+
+
 
             steps {
-                    echo 'jenkins welcome'
+
+                    git 'https://github.com/akrenawi/simple.git'
+
                 }
+
             }
+
         }
+
+
 
 }
