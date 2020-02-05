@@ -1,25 +1,19 @@
 pipeline {
-
     agent any
-
-
-
-    stages {
-
-        stage ('Git Checkout') {
-
-
-
-            steps {
-
+    environment{
+        Path = "/usr/bin:$PATH"
+        
+    }
+        stages {
+            stage ('Git Checkout') {
+                steps {
                     git 'https://github.com/akrenawi/simple.git'
-
                 }
-
+            }
+            stage("Maven Build"){
+                sh "mvn clean package"
             }
 
         }
-
-
 
 }
