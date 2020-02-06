@@ -7,12 +7,12 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from com.projectgps.demo.repository -->
-    </parent> 
-    <groupId>com.projectGps</groupId>
-    <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    </parent>
+<!--    <groupId>com.projectGps</groupId>-->
+<!--    <artifactId>demo</artifactId>-->
+<!--    <version>0.0.1-SNAPSHOT</version>-->
+<!--    <name>demo</name>-->
+<!--    <description>Demo project for Spring Boot</description>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,6 +20,7 @@
         <junit.jupiter.version>5.0.0-M3</junit.jupiter.version>
         <junit.platform.version>1.0.0-M3</junit.platform.version>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -100,17 +101,29 @@
         </dependency>
 
     </dependencies>
-    <repositories>
-        <repository>
-            <id>myMavenRepo.read</id>
-            <url>https://mymavenrepo.com/repo/AzwIe4qyBgz2pGqYFDlj/</url>
-        </repository>
-    </repositories>
+
+    <extensions>
+        <extension>
+            <groupId>org.kuali.maven.wagons</groupId>
+            <artifactId>maven-s3-wagon</artifactId>
+            <version>1.2.1</version>
+        </extension>
+        <extension>
+            <groupId>org.springframework.build</groupId>
+            <artifactId>aws-maven</artifactId>
+            <version>5.0.0.RELEASE</version>
+        </extension>
+    </extensions>
+
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>siraj.repo</id>
+            <url>s3://siraj-repo</url>
+        </snapshotRepository>
         <repository>
-            <id>myMavenRepo.write</id>
-            <url>https://mymavenrepo.com/repo/mzqSQNA7gypiBx5R3b77/</url>
+            <id>siraj.repo</id>
+            <url>s3://siraj-repo</url>
         </repository>
     </distributionManagement>
 
@@ -120,14 +133,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--            <plugin>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.1</version>-->
-<!--                <configuration>-->
-<!--                    <source>${java.version}</source>-->
-<!--                    <target>${java.version}</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
@@ -141,5 +154,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
