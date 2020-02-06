@@ -6,9 +6,9 @@ pipeline {
                     git 'https://github.com/akrenawi/simple.git'
                 }
             }
-            stage('Maven Build'){
+            stage('compile stage'){
                 steps{
-                     sh "mvn clean package"
+                     sh "mvn clean compile"
                 }
                
             }
@@ -21,7 +21,7 @@ pipeline {
 
                 stage("deploy-dev"){
                 steps{
-                    echo 'im deployed'
+                        sh 'mvn deploy'
             }
             }
 
