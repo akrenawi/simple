@@ -12,6 +12,11 @@ pipeline {
                 }
                
             }
+             stage('Mavien Test') {
+            steps {
+                sh 'mvn test'
+            }
+             }
                 stage("deploy-dev"){
                 steps{
                     echo 'im deployed'
