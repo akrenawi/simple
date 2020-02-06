@@ -13,7 +13,6 @@ pipeline {
                
             }
 
-             }
                 stage("deploy-dev"){
                 steps{
                     echo 'im deployed'
