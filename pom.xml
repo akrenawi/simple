@@ -103,14 +103,14 @@
     <repositories>
         <repository>
             <id>myMavenRepo.read</id>
-            <url>https://mymavenrepo.com/app/repos/qudUoahJ25pAvJA2xvat/</url>
+            <url>https://mymavenrepo.com/repo/mzqSQNA7gypiBx5R3b77/</url>
         </repository>
     </repositories>
 
     <distributionManagement>
         <repository>
             <id>myMavenRepo.write</id>
-            <url>https://mymavenrepo.com/app/repos/qudUoahJ25pAvJA2xvat/</url>
+            <url>https://mymavenrepo.com/repo/mzqSQNA7gypiBx5R3b77/</url>
         </repository>
     </distributionManagement>
 
