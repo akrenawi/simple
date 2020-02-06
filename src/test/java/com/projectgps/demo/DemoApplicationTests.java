@@ -27,6 +27,6 @@ class DemoApplicationTests {
         int num1 = repositoryAdd.getNum1();
         int num2 = repositoryAdd.getNum2();
 
-        Assertions.assertEquals(repositoryAdd.methodAdd(), num1 + num2);
+        Assertions.assertEquals(repositoryAdd.methodAdd(), num1 + num2 -2);
     }
 }
